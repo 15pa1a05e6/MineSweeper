@@ -130,6 +130,8 @@ var updateHallOfFame = function(time, outcome) {
     if(outcome==true){
         var res=getFormattedTime(time);
         document.getElementById(timeid).innerText=res;
+        window.alert("Yon won!!");
+        cleaBoard();
        // document.getElementById(toonid).innerText=
     }
 }
@@ -264,7 +266,7 @@ var handleMouseEvents = function (mouseButton, row, col, marked) {
     // TODO: check for winning condition, if true
     //       call gameWon() method
     var totalCells=GAME.rows*GAME.cols;
-    if((totalCells - GAME.flaggedCells == GAME.openCellCount) &&GAME.flaggedCells==0){
+    if(( GAME.openCellCount==totalCells - GAME.flaggedCells) &&GAME.bombs==0){
         gameWon();
     }
 }
