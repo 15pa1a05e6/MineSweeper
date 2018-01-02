@@ -149,10 +149,10 @@ var gameWon = function () {
 
 var updateBombsRemaining = function(value) {
     // TODO: set inner text of element with id "bombs" to the value 
-    document.getElementById("bombs").innerText=value;
+    document.getElementById("bombs").innerText=format(value,3);
     // use exactly 2 places (use leading 0 if single digit)
     // format method is given to you, use it.
-    format(value,3);
+    
 }
 
 var handleLeftClick = function (row, col) {
@@ -201,7 +201,6 @@ var toggleMarkCell = function (row, col, marked) {
             GAME.flaggedCells--;
             GAME.bombs++;
             updateBombsRemaining(GAME.bombs);
-
         } else {
             // TODO: set "marked" attribute of cell to "true"
             cell.setAttribute("marked",true);
@@ -228,7 +227,7 @@ var indicateNeighbors = function (row, col) {
             //TODO: if i, j are valid and not the current row/col and the cell is closed
             //      add "" class to cell
             // https://www.w3schools.com/jsref/prop_element_classlist.asp
-            if(i>=0 && i< rows && j >=0 && j < cols && cell.classList.contains("open"))
+            if(i>=0 && i< GAME.rows && j >=0 && j < GAME.cols && cell.classList.contains("closed"))
                 cell.classList.add("indicate");   
         }
     }
@@ -242,7 +241,7 @@ var resetNeighbors = function (row, col) {
             //TODO: if i, j are valid and not the current row/col and the cell is closed
             //      remove "indicate" class from cell
             // https://www.w3schools.com/jsref/prop_element_classlist.asp
-            if(i>=0 && i< rows && j >= 0 && j < cols && cell.classList.contains("open"))
+            if(i>=0 && i< GAME.rows && j >= 0 && j < GAME>cols && cell.classList.contains("closed"))
                 cell.classList.remove("indicate"); 
         }
     }
