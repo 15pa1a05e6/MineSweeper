@@ -264,7 +264,7 @@ var handleMouseEvents = function (mouseButton, row, col, marked) {
     // TODO: check for winning condition, if true
     //       call gameWon() method
     var totalCells=GAME.rows*GAME.cols;
-    if((totalCells - GAME.flaggedCells == GAME.openCellCount) &&GAME.flaggedCells){
+    if((totalCells - GAME.flaggedCells == GAME.openCellCount) &&GAME.flaggedCells==0){
         gameWon();
     }
 }
